@@ -25,6 +25,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jdbc</artifactId>
+                <version>2.3.7.RELEASE</version>
+            </dependency>
+            <dependency>
                 <groupId>com.wzw.wangziwei.ddd</groupId>
                 <artifactId>wangziweiddd-api</artifactId>
                 <version>1.0-SNAPSHOT</version>
@@ -76,5 +81,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 </project>

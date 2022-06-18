@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.mapper.PeopleMapper">
+    <sql id="Base_Colume_List">
+        id, name
+    </sql>
+    <insert id="insert">
+        insert into people(name) values (#{name})
+    </insert>
+    <update id="update">
+        update people set name = #{name} where id = #{id}
+    </update>
+    <select id="findById"
+            resultType="com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.dataobj.PeopleDO">
+        select <include refid="Base_Colume_List"/> from people where id = #{id}
+    </select>
+    <select id="select" resultType="com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleDTO">
+        select <include refid="Base_Colume_List"/> from people
+        <where> 
+            <foreach collection="ids" item="id" open="id in (" close=")" separator=",">
+                #{id}
+            </foreach>
+        </where>
+        limit #{pageStart},#{pageSize}
+    </select>
+</mapper>
