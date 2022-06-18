@@ -10,7 +10,7 @@
         <module name="wangziweiddd-start" />
         <module name="wangziweiddd-test" />
         <module name="wangziweiddd-api" />
-        <module name="wangziweiddd-instructure" />
+        <module name="wangziweiddd-infrastructure" />
         <module name="wangziweiddd-domain" />
       </profile>
     </annotationProcessing>
