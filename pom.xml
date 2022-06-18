@@ -4,13 +4,72 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.wzw</groupId>
+    <groupId>com.wzw.wangziwei.ddd</groupId>
     <artifactId>wangziweiddd</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>wangziweiddd-api</module>
+        <module>wangziweiddd-appilication</module>
+        <module>wangziweiddd-domain</module>
+        <module>wangziweiddd-instructure</module>
+        <module>wangziweiddd-start</module>
+        <module>wangziweiddd-test</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.wzw.wangziwei.ddd</groupId>
+                <artifactId>wangziweiddd-api</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wzw.wangziwei.ddd</groupId>
+                <artifactId>wangziweiddd-domain</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wzw.wangziwei.ddd</groupId>
+                <artifactId>wangziweiddd-appilication</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <version>1.0-SNAPSHOT</version>
+                <groupId>com.wzw.wangziwei.ddd</groupId>
+                <artifactId>wangziweiddd-instructure</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.wzw.wangziwei.ddd</groupId>
+                <version>1.0-SNAPSHOT</version>
+                <artifactId>wangziweiddd-start</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.wzw.wangziwei.ddd</groupId>
+                <artifactId>wangziweiddd-test</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>2.3.12.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>1.3.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>2.3.7.RELEASE</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

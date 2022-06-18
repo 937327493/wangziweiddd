@@ -6,7 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="wangziweiddd" />
+        <module name="wangziweiddd-appilication" />
+        <module name="wangziweiddd-start" />
+        <module name="wangziweiddd-test" />
+        <module name="wangziweiddd-api" />
+        <module name="wangziweiddd-instructure" />
+        <module name="wangziweiddd-domain" />
       </profile>
     </annotationProcessing>
   </component>
