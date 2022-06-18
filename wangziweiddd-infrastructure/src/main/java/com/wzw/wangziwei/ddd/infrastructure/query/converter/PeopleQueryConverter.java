@@ -1,7 +1,6 @@
 package com.wzw.wangziwei.ddd.infrastructure.query.converter;
 
 import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleDTO;
-import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleQueryDTO;
 import com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.dataobj.PeopleDO;
 
 import java.util.List;

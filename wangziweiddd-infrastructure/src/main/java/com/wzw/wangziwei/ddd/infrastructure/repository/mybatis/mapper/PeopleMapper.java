@@ -1,6 +1,5 @@
 package com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.mapper;
 
-import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleDTO;
 import com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.dataobj.PeopleDO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -31,6 +30,12 @@ public interface PeopleMapper {
      */
     PeopleDO findById(Long id);
 
-
+    /**
+     * 批量查询
+     * @param ids
+     * @param pagestart
+     * @param pageSize
+     * @return
+     */
     List<PeopleDO> select(@Param("ids") List<Long> ids, @Param("pageStart") Integer pagestart, @Param("pageSize") Integer pageSize);
 }

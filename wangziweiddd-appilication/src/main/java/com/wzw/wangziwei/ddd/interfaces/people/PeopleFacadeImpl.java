@@ -8,6 +8,8 @@ import com.wzw.wangziwei.ddd.application.people.command.PeopleApplication;
 import com.wzw.wangziwei.ddd.application.people.command.cmd.PeopleCreateCommand;
 import com.wzw.wangziwei.ddd.application.people.command.cmd.PeopleModifyCommand;
 import com.wzw.wangziwei.ddd.application.people.query.PeopleQueryService;
+import com.wzw.wangziwei.ddd.gateway.QueryPeopleGatewayService;
+import com.wzw.wangziwei.ddd.gateway.dto.PeopleGatewayDTO;
 import com.wzw.wangziwei.ddd.interfaces.converter.PeopleConvert;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 public class PeopleFacadeImpl implements PeopleFacade {
@@ -25,6 +29,8 @@ public class PeopleFacadeImpl implements PeopleFacade {
     @Resource
     private PeopleQueryService peopleQueryService;
 
+    @Resource
+    private QueryPeopleGatewayService queryPeopleGatewayService;
     @RequestMapping("/put")
     @Override
     public UmsResult put(PeopleDTO peopleDTO) {
@@ -68,6 +74,19 @@ public class PeopleFacadeImpl implements PeopleFacade {
                 peopleQueryDTO.setPageSize(200);
             }
             peopleDTO = peopleQueryService.queryPeople(peopleQueryDTO);
+            //远程调用查询对象年龄
+            List<PeopleGatewayDTO> peopleGatewayDTOS = queryPeopleGatewayService.queryBasicPeopleDTO(peopleQueryDTO.getIds());
+            //只返回成年的人
+            peopleDTO = peopleDTO.stream().map(peopleDTO1 -> {
+                Optional<PeopleGatewayDTO> first = peopleGatewayDTOS.stream().filter(peopleGatewayDTO ->
+                    peopleGatewayDTO.getName().equalsIgnoreCase(peopleDTO1.getName())
+                ).collect(Collectors.toList()).stream().findFirst();
+                Integer age = first.map(PeopleGatewayDTO::getAge).orElse(18);
+                if (age < 18) {
+                    return null;
+                }
+                return peopleDTO1;
+            }).collect(Collectors.toList());
             return UmsResult.buildSuccess(peopleDTO);
         } catch (Exception e) {
             //可以打日志

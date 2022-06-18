@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @MapperScan(basePackages = {"com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.mapper"})
-public class MybatisConfig {
+public class MybatisConfig {//事务需要时打开
 //    @Resource
 //    private DataSource dataSource;
 //
