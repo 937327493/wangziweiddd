@@ -32,5 +32,5 @@ public interface PeopleMapper {
     PeopleDO findById(Long id);
 
 
-    List<PeopleDTO> select(@Param("ids") List<Long> ids, @Param("pageStart") Integer pagestart, @Param("pageSize") Integer pageSize);
+    List<PeopleDO> select(@Param("ids") List<Long> ids, @Param("pageStart") Integer pagestart, @Param("pageSize") Integer pageSize);
 }

@@ -3,6 +3,8 @@ package com.wzw.wangziwei.ddd.infrastructure.query;
 import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleDTO;
 import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleQueryDTO;
 import com.wzw.wangziwei.ddd.application.people.query.PeopleQueryService;
+import com.wzw.wangziwei.ddd.infrastructure.query.converter.PeopleQueryConverter;
+import com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.dataobj.PeopleDO;
 import com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.mapper.PeopleMapper;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +20,8 @@ public class PeopleQueryServiceImpl implements PeopleQueryService {
     public List<PeopleDTO> queryPeople(PeopleQueryDTO peopleQueryDTO) {
         Integer pageNum = peopleQueryDTO.getPageNum();
         Integer pagestart = (pageNum - 1) * peopleQueryDTO.getPageSize();
-        List<PeopleDTO> peopleDTOS = peopleMapper.select(peopleQueryDTO.getIds(), pagestart, peopleQueryDTO.getPageSize());
+        List<PeopleDO> peopleDOS = peopleMapper.select(peopleQueryDTO.getIds(), pagestart, peopleQueryDTO.getPageSize());
+            List<PeopleDTO> peopleDTOS = PeopleQueryConverter.peopleQueryDOToPeopleDTO(peopleDOS);
         return peopleDTOS;
     }
 }

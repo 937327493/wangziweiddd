@@ -4,7 +4,6 @@ import com.wzw.wangziwei.ddd.domain.people.model.People;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.UUID;
 
 @Component
 public class PeopleFactory {
