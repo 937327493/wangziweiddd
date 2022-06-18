@@ -12,7 +12,7 @@
         <module>wangziweiddd-api</module>
         <module>wangziweiddd-appilication</module>
         <module>wangziweiddd-domain</module>
-        <module>wangziweiddd-instructure</module>
+        <module>wangziweiddd-infrastructure</module>
         <module>wangziweiddd-start</module>
         <module>wangziweiddd-test</module>
     </modules>
@@ -42,7 +42,7 @@
             <dependency>
                 <version>1.0-SNAPSHOT</version>
                 <groupId>com.wzw.wangziwei.ddd</groupId>
-                <artifactId>wangziweiddd-instructure</artifactId>
+                <artifactId>wangziweiddd-infrastructure</artifactId>
             </dependency>
             <dependency>
                 <groupId>com.wzw.wangziwei.ddd</groupId>

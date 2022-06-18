@@ -24,7 +24,7 @@
         </dependency>
         <dependency>
             <groupId>com.wzw.wangziwei.ddd</groupId>
-            <artifactId>wangziweiddd-instructure</artifactId>
+            <artifactId>wangziweiddd-infrastructure</artifactId>
         </dependency>
     </dependencies>
 
