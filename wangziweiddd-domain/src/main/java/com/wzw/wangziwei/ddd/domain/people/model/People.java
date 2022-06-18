@@ -1,13 +1,12 @@
 package com.wzw.wangziwei.ddd.domain.people.model;
 
 import com.wzw.wangziwei.ddd.domain.people.PeopleRepository;
+import lombok.Data;
 
-import javax.annotation.Resource;
-
+@Data
 public class People {
-    @Resource
     private PeopleRepository peopleRepository;
-
+    private String name;
     public void create() {
         peopleRepository.save(this);
     }
