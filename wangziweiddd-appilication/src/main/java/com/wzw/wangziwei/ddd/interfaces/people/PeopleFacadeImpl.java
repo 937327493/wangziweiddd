@@ -31,6 +31,7 @@ public class PeopleFacadeImpl implements PeopleFacade {
 
     @Resource
     private QueryPeopleGatewayService queryPeopleGatewayService;
+
     @RequestMapping("/put")
     @Override
     public UmsResult put(PeopleDTO peopleDTO) {

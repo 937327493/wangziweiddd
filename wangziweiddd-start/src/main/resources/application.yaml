@@ -8,5 +8,16 @@ spring:
     password: root
     url: jdbc:mysql://127.0.0.1:3306/people
     driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    database: 0
+    host: 192.168.71.130
+    port: 6379
+    timeout: 30000
+    lettuce:
+      pool:
+        max-active: 300
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
 mybatis:
   mapper-locations: classpath*:mybatis/*mapper.xml

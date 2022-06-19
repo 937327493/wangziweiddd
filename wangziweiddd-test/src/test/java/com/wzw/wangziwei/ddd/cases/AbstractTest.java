@@ -8,6 +8,8 @@ import com.wzw.wangziwei.ddd.infrastructure.gateway.QueryPeopleGatewayServiceImp
 import com.wzw.wangziwei.ddd.infrastructure.query.PeopleQueryServiceImpl;
 import com.wzw.wangziwei.ddd.infrastructure.repository.impl.PeopleRepositoryImpl;
 import com.wzw.wangziwei.ddd.interfaces.people.PeopleFacadeImpl;
+import com.wzw.wangziwei.ddd.mock.RedisServiceMockImpl;
+import com.wzw.wangziwei.ddd.mock.RocketMqServiceMockImpl;
 import com.wzw.wangziwei.ddd.mock.mockExternalInterfaceMockImpl;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ActiveProfiles;
@@ -24,10 +26,13 @@ import org.springframework.test.context.junit4.SpringRunner;
         PeopleRepositoryImpl.class,
         MybatisConfig.class,
         MysqlDBConfig.class,
-        mockExternalInterfaceMockImpl.class,
-        QueryPeopleGatewayServiceImpl.class
+        mockExternalInterfaceMockImpl.class,//外部微服务 mock接口
+        QueryPeopleGatewayServiceImpl.class,
+//        RocketMqServiceImpl.class,//rocketmq真实环境放开
+        RocketMqServiceMockImpl.class,//rocketmq mock假数据
+        RedisServiceMockImpl.class
 })
-@TestPropertySource("classpath:application-test.yaml")
 @ActiveProfiles("test")
+@TestPropertySource(value = {"classpath:application.properties"})
 public abstract class AbstractTest {
 }
