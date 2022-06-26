@@ -6,11 +6,11 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://127.0.0.1:3306/people
+    url: jdbc:mysql://mysql-master.wzwddd:3306/people
     driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
     database: 0
-    host: 127.0.0.1
+    host: redis.wzwddd
     port: 6379
     timeout: 30000
     lettuce:
