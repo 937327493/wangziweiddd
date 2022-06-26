@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: wangziweiddd
-          image: $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:latest
+          image: $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER
           ports:
             - containerPort: 8080
               protocol: TCP
