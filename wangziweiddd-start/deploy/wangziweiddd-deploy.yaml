@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: wangziweiddd
-  namespace: dddops
+  namespace: wzwddd
   labels:
     app: wangziweiddd
 spec:
@@ -45,16 +45,16 @@ kind: Service
 apiVersion: v1
 metadata:
   name: wangziweiddd
-  namespace: dddops
+  namespace: wzwddd
   labels:
     app: wangziweiddd
 spec:
   ports:
     - name: http
       protocol: TCP
-      port: 8080		#port:容器在service中暴露的端口(集群中可访问的端口)
+      port: 8080		#port:pod在service中暴露的端口(集群中可访问的端口)
       targetPort: 8080  #targetport:容器暴露的端口
-      nodePort: 31000	#nodeport:容器在服务器中暴露的端口(外网可访问的端口)
+      nodePort: 31000	#nodeport:service在服务器中暴露的端口(外网可访问的端口)
   selector:
     app: wangziweiddd
   type: NodePort
