@@ -64,9 +64,6 @@ public class PeopleFacadeImpl implements PeopleFacade {
             if (peopleQueryDTO == null) {
                 throw new RuntimeException("PeopleFacadeImpl#getPeople#peopleQueryDTO为null");
             }
-            if (peopleQueryDTO.getIds() == null) {
-                throw new RuntimeException("PeopleFacadeImpl#getPeople#peopleQueryDTO为null");
-            }
             if (peopleQueryDTO.getPageNum() == null || peopleQueryDTO.getPageNum() <= 0) {
                 peopleQueryDTO.setPageNum(1);
             }
@@ -75,19 +72,24 @@ public class PeopleFacadeImpl implements PeopleFacade {
                 peopleQueryDTO.setPageSize(200);
             }
             peopleDTO = peopleQueryService.queryPeople(peopleQueryDTO);
-            //远程调用查询对象年龄
-            List<PeopleGatewayDTO> peopleGatewayDTOS = queryPeopleGatewayService.queryBasicPeopleDTO(peopleQueryDTO.getIds());
-            //只返回成年的人
-            peopleDTO = peopleDTO.stream().map(peopleDTO1 -> {
-                Optional<PeopleGatewayDTO> first = peopleGatewayDTOS.stream().filter(peopleGatewayDTO ->
-                    peopleGatewayDTO.getName().equalsIgnoreCase(peopleDTO1.getName())
-                ).collect(Collectors.toList()).stream().findFirst();
-                Integer age = first.map(PeopleGatewayDTO::getAge).orElse(18);
-                if (age < 18) {
-                    return null;
-                }
-                return peopleDTO1;
-            }).collect(Collectors.toList());
+            if (peopleQueryDTO.getIds() != null) {
+                //远程调用查询对象年龄
+                List<PeopleGatewayDTO> peopleGatewayDTOS = queryPeopleGatewayService.queryBasicPeopleDTO(peopleQueryDTO.getIds());
+                //只返回成年的人
+                peopleDTO = peopleDTO.stream()
+                        .map(peopleDTO1 -> {
+                            Optional<PeopleGatewayDTO> first = peopleGatewayDTOS.stream().filter(peopleGatewayDTO ->
+                                    peopleGatewayDTO.getName().equalsIgnoreCase(peopleDTO1.getName())
+                            ).collect(Collectors.toList()).stream().findFirst();
+                            Integer age = first.map(PeopleGatewayDTO::getAge).orElse(18);
+                            if (age < 18) {
+                                return null;
+                            }
+                            return peopleDTO1;
+                        })
+                        .filter(peopleDTO1 -> peopleDTO1 != null)
+                        .collect(Collectors.toList());
+            }
             return UmsResult.buildSuccess(peopleDTO);
         } catch (Exception e) {
             //可以打日志

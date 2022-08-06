@@ -1,6 +1,6 @@
 package com.wzw.wangziwei.ddd.mock;
 
-import com.wzw.wangziwei.ddd.infrastructure.redis.RedisService;
+import com.wzw.wangziwei.ddd.redis.RedisService;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;

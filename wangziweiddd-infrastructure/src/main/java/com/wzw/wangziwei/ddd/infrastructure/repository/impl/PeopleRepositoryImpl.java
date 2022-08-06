@@ -26,6 +26,8 @@ public class PeopleRepositoryImpl implements PeopleRepository {
 
     @Override
     public People find(Long id) {
-        return PeopleConverter.peopleDOToPeople(peopleMapper.findById(id));
+        People people = PeopleConverter.peopleDOToPeople(peopleMapper.findById(id));
+        people.setPeopleRepository(this);
+        return people;
     }
 }

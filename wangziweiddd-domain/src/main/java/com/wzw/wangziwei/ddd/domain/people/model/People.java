@@ -20,6 +20,10 @@ public class People {
      * 名字
      */
     private String name;
+
+    /**
+     * 充血模型
+     */
     public void create() {
         peopleRepository.save(this);
     }

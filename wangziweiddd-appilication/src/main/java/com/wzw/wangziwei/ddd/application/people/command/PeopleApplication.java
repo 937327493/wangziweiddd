@@ -25,7 +25,7 @@ public class PeopleApplication {
     public void update(PeopleModifyCommand peopleModifyCommand) {
         People people = peopleRepository.find(peopleModifyCommand.getId());
         people.setName(peopleModifyCommand.getName());
-        peopleRepository.save(people);
+        people.create();
     }
 
 }

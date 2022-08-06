@@ -21,7 +21,6 @@ public class PeopleQueryServiceImpl implements PeopleQueryService {
         Integer pageNum = peopleQueryDTO.getPageNum();
         Integer pagestart = (pageNum - 1) * peopleQueryDTO.getPageSize();
         List<PeopleDO> peopleDOS = peopleMapper.select(peopleQueryDTO.getIds(), pagestart, peopleQueryDTO.getPageSize());
-            List<PeopleDTO> peopleDTOS = PeopleQueryConverter.peopleQueryDOToPeopleDTO(peopleDOS);
-        return peopleDTOS;
+        return PeopleQueryConverter.peopleQueryDOToPeopleDTO(peopleDOS);
     }
 }

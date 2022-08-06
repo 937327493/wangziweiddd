@@ -10,7 +10,11 @@
         insert into people(name) values (#{name})
     </insert>
     <update id="update">
-        update people set name = #{name} where id = #{id}
+        update people set
+        <if test="name != null">
+            name = #{name}
+        </if>
+        where id = #{id}
     </update>
     <select id="findById"
             resultType="com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.dataobj.PeopleDO">
@@ -18,11 +22,13 @@
     </select>
     <select id="select" resultType="com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.dataobj.PeopleDO">
         select <include refid="Base_Colume_List"/> from people
-        <where> 
-            <foreach collection="ids" item="id" open="id in (" close=")" separator=",">
-                #{id}
-            </foreach>
-        </where>
+        <if test="ids != null">
+            <where>
+                <foreach collection="ids" item="id" open="id in (" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </where>
+        </if>
         limit #{pageStart},#{pageSize}
     </select>
 </mapper>
