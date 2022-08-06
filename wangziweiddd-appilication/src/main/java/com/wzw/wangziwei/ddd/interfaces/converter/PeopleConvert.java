@@ -1,6 +1,6 @@
 package com.wzw.wangziwei.ddd.interfaces.converter;
 
-import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleDTO;
+import com.wzw.wangziwei.ddd.api.dto.people.PeopleDTO;
 import com.wzw.wangziwei.ddd.application.people.command.cmd.PeopleCreateCommand;
 import com.wzw.wangziwei.ddd.application.people.command.cmd.PeopleModifyCommand;
 

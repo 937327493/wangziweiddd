@@ -1,17 +1,12 @@
 package com.wzw.wangziwei.ddd.cases.facade;
 
-import com.alibaba.fastjson.JSON;
 import com.wzw.wangziwei.ddd.api.servcie.people.PeopleFacade;
-import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleDTO;
-import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleQueryDTO;
+import com.wzw.wangziwei.ddd.api.dto.people.PeopleDTO;
+import com.wzw.wangziwei.ddd.api.dto.people.PeopleQueryDTO;
 import com.wzw.wangziwei.ddd.api.utils.UmsResult;
 import com.wzw.wangziwei.ddd.cases.AbstractTest;
 import com.wzw.wangziwei.ddd.infrastructure.rocketmq.RocketMqService;
-import com.wzw.wangziwei.ddd.infrastructure.rocketmq.RocketMqServiceImpl;
 import com.wzw.wangziwei.ddd.redis.RedisService;
-import org.apache.rocketmq.client.consumer.DefaultMQPullConsumer;
-import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -19,8 +14,6 @@ import org.junit.runners.MethodSorters;
 import org.springframework.test.annotation.DirtiesContext;
 import javax.annotation.Resource;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)

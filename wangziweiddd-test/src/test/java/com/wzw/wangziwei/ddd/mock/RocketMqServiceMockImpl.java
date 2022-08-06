@@ -1,6 +1,6 @@
 package com.wzw.wangziwei.ddd.mock;
 
-import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleDTO;
+import com.wzw.wangziwei.ddd.api.dto.people.PeopleDTO;
 import com.wzw.wangziwei.ddd.infrastructure.rocketmq.RocketMqService;
 import org.apache.rocketmq.client.consumer.DefaultMQPullConsumer;
 import org.apache.rocketmq.client.exception.MQClientException;

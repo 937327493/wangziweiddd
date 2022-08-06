@@ -1,8 +1,8 @@
 package com.wzw.wangziwei.ddd.interfaces.people;
 
 import com.wzw.wangziwei.ddd.api.servcie.people.PeopleFacade;
-import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleDTO;
-import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleQueryDTO;
+import com.wzw.wangziwei.ddd.api.dto.people.PeopleDTO;
+import com.wzw.wangziwei.ddd.api.dto.people.PeopleQueryDTO;
 import com.wzw.wangziwei.ddd.api.utils.UmsResult;
 import com.wzw.wangziwei.ddd.application.people.command.PeopleApplication;
 import com.wzw.wangziwei.ddd.application.people.command.cmd.PeopleCreateCommand;

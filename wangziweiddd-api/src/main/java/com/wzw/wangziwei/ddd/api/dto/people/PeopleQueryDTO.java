@@ -1,4 +1,4 @@
-package com.wzw.wangziwei.ddd.api.servcie.people.dto;
+package com.wzw.wangziwei.ddd.api.dto.people;
 
 import lombok.Data;
 

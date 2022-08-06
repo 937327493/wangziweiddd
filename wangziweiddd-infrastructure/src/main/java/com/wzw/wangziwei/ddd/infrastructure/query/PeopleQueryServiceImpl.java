@@ -1,7 +1,7 @@
 package com.wzw.wangziwei.ddd.infrastructure.query;
 
-import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleDTO;
-import com.wzw.wangziwei.ddd.api.servcie.people.dto.PeopleQueryDTO;
+import com.wzw.wangziwei.ddd.api.dto.people.PeopleDTO;
+import com.wzw.wangziwei.ddd.api.dto.people.PeopleQueryDTO;
 import com.wzw.wangziwei.ddd.application.people.query.PeopleQueryService;
 import com.wzw.wangziwei.ddd.infrastructure.query.converter.PeopleQueryConverter;
 import com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.dataobj.PeopleDO;
