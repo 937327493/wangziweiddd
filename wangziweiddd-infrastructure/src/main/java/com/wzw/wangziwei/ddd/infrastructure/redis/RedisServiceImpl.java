@@ -20,6 +20,7 @@ public class RedisServiceImpl implements RedisService {
     @Override
     public String getValueByKey(String key) {
         String o = (String) redisTemplate.opsForValue().get(key);
+        redisTemplate.multi();
         Object execute = redisTemplate.execute(new SessionCallback() {
 
             @Override
@@ -27,6 +28,7 @@ public class RedisServiceImpl implements RedisService {
                 return null;
             }
         });
+        redisTemplate.exec();
         return o;
     }
 
