@@ -10,10 +10,11 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class LogDO {
+
     private Long id;
     private String opPeopleName;
     private LocalDateTime logTime;
     private LogTypeEnum logTypeEnum;
-    private LogAttrKeyOb value;
-    private String key;
+    private String value;
+    private String itemkey;
 }

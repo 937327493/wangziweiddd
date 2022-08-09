@@ -16,8 +16,8 @@ public class LogFactory {
         opLog.setKey(key);
         opLog.setOpPeopleName(name);
         LogAttrKeyOb logAttrKeyOb = new LogAttrKeyOb();
-        logAttrKeyOb.setAfter(before);
-        logAttrKeyOb.setBefore(after);
+        logAttrKeyOb.setAfter(after);
+        logAttrKeyOb.setBefore(before);
         opLog.setValue(logAttrKeyOb);
         return opLog;
     };

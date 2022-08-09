@@ -57,7 +57,7 @@ public class MysqlDBConfig {
 
             List scriptList = new ArrayList();
             scriptList.add(ScriptResolver.classPathScript("ddlScript/People.sql"));
-
+            scriptList.add(ScriptResolver.classPathScript("ddlScript/log_op.sql"));
 
             DownloadConfig downloadConfig = DownloadConfig.aDownloadConfig()
                     .build();

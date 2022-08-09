@@ -1,11 +1,14 @@
 package com.wzw.wangziwei.ddd.cases;
 
+import com.wzw.wangziwei.ddd.application.log.command.LogApplication;
 import com.wzw.wangziwei.ddd.application.people.command.PeopleApplication;
 import com.wzw.wangziwei.ddd.config.MybatisConfig;
 import com.wzw.wangziwei.ddd.config.MysqlDBConfig;
+import com.wzw.wangziwei.ddd.domain.Log.LogFactory;
 import com.wzw.wangziwei.ddd.domain.people.PeopleFactory;
 import com.wzw.wangziwei.ddd.infrastructure.gateway.QueryPeopleGatewayServiceImpl;
 import com.wzw.wangziwei.ddd.infrastructure.query.PeopleQueryServiceImpl;
+import com.wzw.wangziwei.ddd.infrastructure.repository.impl.LogRepositoryImpl;
 import com.wzw.wangziwei.ddd.infrastructure.repository.impl.PeopleRepositoryImpl;
 import com.wzw.wangziwei.ddd.interfaces.people.PeopleFacadeImpl;
 import com.wzw.wangziwei.ddd.mock.RedisServiceMockImpl;
@@ -30,7 +33,11 @@ import org.springframework.test.context.junit4.SpringRunner;
         QueryPeopleGatewayServiceImpl.class,
 //        RocketMqServiceImpl.class,//rocketmq真实环境放开
         RocketMqServiceMockImpl.class,//rocketmq mock假数据
-        RedisServiceMockImpl.class
+        RedisServiceMockImpl.class,
+        LogApplication.class,
+        LogRepositoryImpl.class,
+        LogFactory.class
+
 })
 @ActiveProfiles("test")
 @TestPropertySource(value = {"classpath:application.properties"})

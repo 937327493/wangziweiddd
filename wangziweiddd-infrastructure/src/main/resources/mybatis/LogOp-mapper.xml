@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.mapper.LogMapper">
+    <sql id="Base_Colume_List">
+        id, opPeopleName, logTime, logTypeEnum, value, itemkey
+    </sql>
+    <insert id="insert">
+        insert into log_op( opPeopleName, logTime, logTypeEnum, value, itemkey) values (
+                        #{opPeopleName}, #{logTime}, #{logTypeEnum}, #{value}, #{itemkey})
+    </insert>
+
+    <select id="findByKey"
+            resultType="com.wzw.wangziwei.ddd.infrastructure.repository.mybatis.dataobj.LogDO">
+        select <include refid="Base_Colume_List"/> from log_op where itemkey = #{itemkey}
+    </select>
+
+</mapper>

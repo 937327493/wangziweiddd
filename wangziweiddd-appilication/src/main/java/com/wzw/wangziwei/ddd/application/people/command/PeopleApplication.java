@@ -34,10 +34,10 @@ public class PeopleApplication {
         if (Objects.equals(peopleModifyCommand.getName(), people.getName())) {
             return;
         }
+        LogCommand logCommand = LogConverter.buildLogCommand(peopleModifyCommand, people);
         people.setName(peopleModifyCommand.getName());
         people.create();
 
-        LogCommand logCommand = LogConverter.buildLogCommand(peopleModifyCommand, people);
         logApplication.create(logCommand);
     }
 
